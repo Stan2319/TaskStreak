@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="../public/css/styles.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../public/images/T.png">
+    <script  src="../public/js/slider.js"></script>
+    <script>
+        
+        function handleClick(div) {
+            toggleAnswer(div); 
+            rotateElm(div);    
+        }
+
+        function toggleAnswer(element) {
+            const answer = element.nextElementSibling;
+            if (answer.style.maxHeight) {
+                answer.style.maxHeight = null;
+            } else {
+                answer.style.maxHeight = answer.scrollHeight + "px";
+            }
+            
+            
+        } 
+        function rotateElm(elm) {
+            const arrow = elm.querySelector('.arrow-symbol'); // Target the arrow in the clicked div
+            const currentRotation = arrow.getAttribute('data-rotated'); // Get current state (data attribute)
+
+            if (currentRotation === "true") {
+                arrow.style.transform = "rotate(0deg)"; // Reset to original position
+                arrow.setAttribute('data-rotated', "false"); // Update state
+            } else {
+                arrow.style.transform = "rotate(90deg)"; // Rotate 90 degrees
+                arrow.setAttribute('data-rotated', "true"); // Update state
+            }
+        }
+        
+    </script>
+</head>
+<header>
+    <nav id="nav">
+        <div id="padding">
+            <div id="logo">
+                <img src="../public/images/TaskStreak-Logo.png" alt="TaskStreak Logo">
+            </div>
+            <div id="links">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#FAQ" class="nav-link">FAQ</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+                <a href="mailto:someone@example.com" class="nav-link">Contact Us</a>
+                <a href="#pricing" class="cleardeco"><button class="button" id="sign-up" >Sign Up</button></a>
+            </div>
+        </div>
+    </nav>
+</header>
+<body>
+    <div id="hero-section">
+        <h1 id="hero-title">
+            Transform Your <span>Tweets</span> into Powerful Habits
+        </h1>
+        <h4 id="hero-sub-title">
+            Track your habits through tweets and turn daily actions into lasting success
+        </h4>
+        <a href="#pricing" class="cleardeco"><button class="button" id="hero-button">
+            Get Access
+        </button></a>
+    </div>
+    <section>
+        <div class="slider-container">
+            <div class="slider">
+                <img src="../public/images/Fake-Tweet(1).png" alt="tweet 1" class="tweet">
+                <img src="../public/images/Fake-Tweet(2).png" alt="tweet 2" class="tweet">
+                <img src="../public/images/Fake-Tweet(3).png" alt="tweet 3" class="tweet">
+                <img src="../public/images/Fake-Tweet(4).png" alt="tweet 4" class="tweet">
+                <img src="../public/images/Fake-Tweet(5).png" alt="tweet 5" class="tweet">
+                <img src="../public/images/Fake-Tweet(6).png" alt="tweet 6" class="tweet">
+            </div>
+        </div>
+    </section>
+    <div id="features">
+        <div id="features-top">
+            <div class="feature">
+                <h3>
+                    📅 Track Your Habits on Twitter
+                </h3>
+                <p>
+                    Stay accountable by sharing your progress directly on Twitter. Every habit, streak, and success is posted automatically, helping you stay on track while inspiring others.
+                </p>
+            </div>
+            <div class="feature">
+                <h3>
+                    🎉 Celebrate Milestones
+                </h3>
+                <p>
+                    Achieve goals and unlock special milestones like weekly or monthly streaks. From confetti-filled tweets to custom visuals, celebrate your journey in style.
+                </p>
+            </div>
+        </div>
+        <div id="features-bottom">
+            <div class="feature">
+                <h3>
+                    ✔️ Simple and Customizable
+                </h3>
+                <p>
+                    Set goals, track progress, and choose how your tweets look. Whether it’s daily updates or hitting a big milestone, you’re in control of how you share your wins.
+                </p>
+            </div>
+            <div class="feature">
+                <h3>
+                    🔥 Build Momentum
+                </h3>
+                <p>
+                    Turn small wins into big results. Your habit tracker keeps you motivated by showcasing progress in real-time, helping you stay consistent and focused.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="faq-container" id="FAQ">
+        <div class="faq-item">
+            <div class="arrow" onclick="handleClick(this)">
+                <p class="faq-question" >1. What is TaskStreak?</p>
+                <p class="arrow-symbol" >></p>
+            </div>
+            <div class="faq-answer">
+                <p>TaskStreak is a tool that helps you track, analyze, and maintain habits related to your Twitter activity. 
+                    Whether you’re aiming to tweet daily, engage with followers, or grow your account, our tracker keeps you on target.
+                </p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="arrow" onclick="handleClick(this)">
+                <p class="faq-question" onclick="toggleAnswer(this)">2. Do I need to give you access to my Twitter account?</p>
+                <p class="arrow-symbol" >></p>
+            </div>
+            <div class="faq-answer">
+                <p>Yes, we use Twitter’s API to track your activity securely. We only request the permissions necessary to provide tracking and insights.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="arrow" onclick="handleClick(this)">
+                <p class="faq-question" onclick="toggleAnswer(this)">3. Does TaskStreak send reminders?</p>
+                <p class="arrow-symbol" >></p>
+            </div>
+            <div class="faq-answer">
+                <p>Yes, you can set daily or weekly reminders to help you stick to your habits.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="arrow" onclick="handleClick(this)">
+                <p class="faq-question" onclick="toggleAnswer(this)">4. What happens if I disconnect my Twitter account?</p>
+                <p class="arrow-symbol" >></p>
+            </div>
+            <div class="faq-answer">
+                <p>If you disconnect your Twitter account, we’ll no longer track your activity. However, your previous data will remain accessible unless you choose to delete it</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="arrow" onclick="handleClick(this)">
+                <p class="faq-question" onclick="toggleAnswer(this)">5. How do I contact support?</p>
+                <p class="arrow-symbol" >></p>
+            </div>
+            <div class="faq-answer">
+            <p>You can reach out to our support team via the "Help" section in the app or email us at support@example.com.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="arrow" onclick="handleClick(this)">
+                <p class="faq-question" onclick="toggleAnswer(this)">6. Is my Twitter data secure?</p>
+                <p class="arrow-symbol" >></p>
+            </div>
+            <div class="faq-answer">
+                <p>Absolutely. We use industry-standard encryption to protect your data and adhere to Twitter’s API policies. Your private information is never shared or sold.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="arrow" onclick="handleClick(this)">
+                <p class="faq-question" onclick="toggleAnswer(this)">7. Can I delete my data if I stop using the tracker?</p>
+                <p class="arrow-symbol" >></p>
+            </div>
+            <div class="faq-answer">
+                <p>Yes, you can delete your data anytime through your account settings.</p>
+            </div>
+        </div>
+    </div>
+    <div id="pricing">
+        <div class="pricing-section">
+            <div>
+                <h3>
+                    Starter
+                </h3>
+                <h2>
+                    Free
+                </h2>
+            </div>
+            <div>
+                <p class="included">✓ Up to 5 Habits tracked</p>
+                <p class="included">✓ One reminder per habit a day</p>
+                <p class="included">✓ Basic progress insights</p>
+                <button class="price-button">Get TaskStreak</button>
+            </div>
+        </div>
+        <div class="pricing-section">
+            <div>
+                <h3>
+                    Pro
+                </h3>
+                <h2>
+                    $9.99 <span>/ month</span>
+                </h2>
+            </div>
+            <div>
+                <p class="included">✓ Unlimited Habits tracked</p>
+                <p class="included">✓ Multiple reminders per habit a day</p>
+                <p class="included">✓ Advanced Progress insights </p>
+                <button class="price-button">Get TaskStreak Pro</button>
+            </div>
+        </div>
+    </div>
+</body>
+<footer>
+    <div id="group">
+        <div class="column">
+            <h4>
+                Task<span>Streak</span>
+            </h4>
+            <div id="socialMedia">
+                <a href=""><img src="../public/images/Social Icons.svg"></a> <!--Link this to Twitter!!!-->
+            </div>
+        </div>
+        <div class="column">
+            <p class="head">Categories</p>
+            <a href="#features">Features</a>
+            <a href="#faq">FAQ</a>
+            <a href="#pricing">Pricing</a> 
+        </div>
+        <div class="column">
+            <p class="head">Resources</p>
+            <a href="./privacyPolicy.html">Privacy Policy</a>
+            <a href="./TOS.html">Terms of service</a>
+        </div>
+    </div>
+</footer>
+</html>
+🔥 <!--save for later
+domain: task streak
+-->
